@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+/**
+ * Connects to the MongoDB database using the provided URL from the environment variables.
+ *
+ * @return {Promise<void>} A promise that resolves when the connection is successful, or rejects with an error if there is any issue connecting to the database.
+ */
 const connectDB = async () => {
   try {
     const url: string = process.env.MONGODB_URL || '';
@@ -12,6 +17,11 @@ const connectDB = async () => {
   }
 };
 
+/**
+ * Closes the connection to the MongoDB database.
+ *
+ * @return {Promise<void>} A promise that resolves when the connection is successfully closed.
+ */
 const closeDB = async () => {
   mongoose.connection.close();
   console.log('MongoDB disconnected');

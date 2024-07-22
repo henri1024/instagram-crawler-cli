@@ -7,6 +7,11 @@ import { AccountCredential } from '../models/account-credential';
 
 var validator = require('validator');
 
+/**
+ * Asynchronously spawns a headless browser to sign in with the provided email.
+ *
+ * @param {string} email - The email address for signing in.
+ */
 async function spawnSigninPuppeteer(email: string) {
   if (!validator.isEmail(email)) {
     throw new Error('invalid email address');

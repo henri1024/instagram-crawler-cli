@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { signInInstagram } from './commands/signup-instagram';
 import { loadInstagram } from './commands/load-instagram';
+import { scrapeInstagramComments } from './commands/scrape-instagram-comment';
 import dotenv from 'dotenv';
 
 const program = new Command();
@@ -16,5 +17,6 @@ program
 
 program.addCommand(signInInstagram);
 program.addCommand(loadInstagram);
+program.addCommand(scrapeInstagramComments);
 
 program.parse(process.argv);
