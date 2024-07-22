@@ -4,6 +4,12 @@ import {
 } from '../models/account-credential';
 import { connectDB, closeDB } from '../config/mongodb';
 
+/**
+ * Upserts an account credential based on the provided data.
+ *
+ * @param {AccountCredentialInterface} credentialData - The data of the account credential to upsert.
+ * @return {Promise<AccountCredentialInterface | null>} The upserted account credential or null if not found.
+ */
 const upsertAccountCredential = async (
   credentialData: AccountCredentialInterface
 ): Promise<AccountCredentialInterface | null> => {
@@ -28,6 +34,13 @@ const upsertAccountCredential = async (
   }
 };
 
+/**
+ * Retrieves an account credential based on the provided email.
+ *
+ * @param {String} email - The email of the account credential to retrieve.
+ * @return {Promise<AccountCredentialInterface | null>} A promise that resolves to the account credential or null if not found.
+ * @throws {Error} If an error occurs while connecting to the database or retrieving the account credential.
+ */
 const getAccountCredential = async (
   email: String
 ): Promise<AccountCredentialInterface | null> => {

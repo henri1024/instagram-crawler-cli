@@ -10,6 +10,14 @@ import { AccountCredential } from '../models/account-credential';
 
 var validator = require('validator');
 
+/**
+ * Loads a saved session using Puppeteer and saves the session cookies.
+ *
+ * @param {string} email - The email address associated with the saved session.
+ * @return {Promise<void>} A promise that resolves when the session is loaded and saved.
+ * @throws {Error} If the email address is invalid.
+ * @throws {Error} If there is no session stored by the given email.
+ */
 async function loadSavedSessionPuppeteer(email: string) {
   if (!validator.isEmail(email)) {
     throw new Error('invalid email address');
